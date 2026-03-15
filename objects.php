@@ -11,7 +11,7 @@ abstract class Base implements JsonSerializable
             return;
         }
 
-        $this->{$name} = $value;
+        $this->$name = $value;
     }
 
     public function __get($name)
@@ -22,7 +22,7 @@ abstract class Base implements JsonSerializable
             return $this->$getter($name);
         }
 
-        return $this->{$name} ?? null;
+        return $this->$name ?? null;
     }
 
     /**
@@ -89,4 +89,4 @@ $user->lastname = 'Bączek';
 $user->pesel = '123';
 
 var_dump($user, json_encode($user, JSON_PRETTY_PRINT));
-?>
+
